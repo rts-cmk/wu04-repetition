@@ -1,11 +1,14 @@
 import { navigate } from "@reach/router"
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import Store from "./Store"
 import { useCookies } from "react-cookie"
+import { FaSpinner } from "react-icons/fa"
+import "./spinner.css"
 
 export default function Login() {
 	var {setToken} = useContext(Store)
 	var [cookies] = useCookies(["bf-token"])
+	var [isLoading, setIsloading] = useState(false)
 	
 	useEffect(function() {
 		if (cookies["bf-token"]) {
@@ -16,6 +19,7 @@ export default function Login() {
 
 	function submitHandler(event) {
 		event.preventDefault()
+		setIsloading(true)
 		
 		fetch("http://localhost:4000/auth/token", {
 			method: "POST",
@@ -58,7 +62,7 @@ export default function Login() {
 				<input type="checkbox" name="rememberme" />
 				<label>Husk mig</label>
 			</div>
-			<button type="submit">Log ind</button>
+			<button type="submit" disabled={isLoading}>Log ind {isLoading ? <FaSpinner className="spinner" /> : null}</button>
 		</form>
 	)
 }
