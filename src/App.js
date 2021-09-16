@@ -1,6 +1,16 @@
+import { useState } from "react";
+import ClassList from "./components/ClassList";
+import Header from "./components/Header";
+import Store from "./Store";
+
 function App() {
+  var [cartContent, setCartContent] = useState([])
+
   return (
-    null
+    <Store.Provider value={{cartContent, setCartContent}}>
+      <Header />
+      <ClassList />
+    </Store.Provider>
   )
 }
 
