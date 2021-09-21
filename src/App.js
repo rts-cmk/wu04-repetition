@@ -1,6 +1,10 @@
+function MyComponent({ ost }) {
+  return <p>{ost}</p>
+}
+
 function App() {
   return (
-    null
+    <MyComponent ost="feta" />
   )
 }
 
