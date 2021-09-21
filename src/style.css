@@ -1,0 +1,11 @@
+h1 {
+	color: goldenrod;
+}
+
+.darkmode {
+	background-color: black;
+}
+
+.darkmode h1 {
+	color: hotpink;
+}
