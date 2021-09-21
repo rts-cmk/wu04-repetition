@@ -1,0 +1,9 @@
+@import "../variables";
+
+nav {
+	background-color: $backgroundColor;
+	li {
+		color: $color;
+		font-family: $fontFamily;
+	}
+}
