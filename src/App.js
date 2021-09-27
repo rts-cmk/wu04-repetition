@@ -1,6 +1,11 @@
+import Dims from "./Dims";
+
 function App() {
   return (
-    null
+    <>
+      <Dims heading="Velkommen" />
+      <h1>Hej verden!</h1>
+    </>
   )
 }
 
